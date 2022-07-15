@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+<title>Easy</title>
+<link rel="stylesheet" type="text/css" href="Easy.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>  <!----put a clear blue background image, this is just an example----->
+<section class ="container">
+  <div class="nav">
+    <a href="#default" class="logo">Mathdoku</a>
+    <div class="nav-right">
+      <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+      <a href="#" id="myBtn">Help</a>
+    </div>
+  </div> 
+  <hr>
+  <div class = "left">
+    <article>
+      <!-----9x9 board--> <!-----different version----->
+      <div id="board"></div>    
+    </article>
+  </div>
+  <div class = "right">
+    <article>
+      <h1 id="messages">0</h1>
+      <h2>Select Levels:</h2>
+      <div id = "image"></div>
+      <h1><div id="timer">00:00</h1>
+      <div id="digits"></div>
+    </article>
+  </div>
+
+  <div class="center">
+    <div id="Prize"></div>
+    <div id="firework"></div>
+  </div>
+
+  <!--The Modal -->
+  <div id="myModal" class="modal">
+    <!--Modal content-->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Hello there! This is my Mathdoku game where it consists some questions that you will ask</h1>
+      <ol>
+        <li>How do you play the game when the game starts?</li>
+        <dd>Answer: There will be options on easy, medium and hard levels. Once you clicked in, there will be a display screen to show numbers and find the missing number which needs to click the button 1 to 9 and decide which one you think is suitable.</dd><br>
+        <li>What happens if I win the game?</li>
+        <dd>Answer: There will be a statment where it says "Congratulation!" and include with a firework effect.</dd>
+        <li>Why isn't the background music working?</li>
+        <dd>Answer: You need to click the icon button in order to play the music.</dd>
+        <li>Are there time limited in the game?</li>
+        <dd>Answer: there is no time limit in the game, however there will be a time when you finsih the game.</dd>
+      </ol>
+
+    </div>
+  </div>
+</section>
+
+<!--script src="Dropdown menu.js"></script-->
+<script src="IndexEasy.js"></script>
+<!--script src="setting.js"></script-->
+
+</body>
+</html>

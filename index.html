@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+<html>
+<title>Mathdoku</title>
+<link rel="stylesheet" type="text/css" href="Mathdoku.css">
+<link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"> 
+
+<body style="background-color:#00B4D8;">  
+
+<!----Click function to on/off music---->
+<!----<div>right-side<div>-->
+<div class="right-side">
+<img src="play.png" id="icon">
+</div>
+
+<audio id="mySong">
+
+    <source src="gamemusic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+    var mySong = document.getElementById("mySong");
+    var icon = document.getElementById("icon");
+
+    icon.onclick = function() {
+       
+        if(mySong.paused){
+            console.log("mySong1: ", mySong);
+            mySong.play();
+            icon.src="pause.png";
+        }else{ 
+            console.log("mySong: ", mySong);
+
+            mySong.pause();
+            icon.src="play.png";
+        }
+    }
+</script>
+
+<h1><p>Mathdoku</p></h1>
+
+
+      <ol>
+        <h2>Hello there! This is my Mathdoku game where it consists with numbers to enter in the box</h2>
+        <h2>A sudoku puzzle begins with a grid in which some of the numbers are already in place</h2>
+        <h2>Each game should have one and only solution to be considered a valid Mathdoku game</h2>
+        <h2>There will be no number that is repeated throughout the game and should be completed numbers from 1 to 9</h2>
+        <h2>Players must click the number in order to finish the game</h2>
+      </ol>
+
+<a href="Setting.html"><img src="setting.png" style="float:right;"></a>
+
+<center><a href="Easy.html" class="button">Play</a></center>
+<br>
+
+</body>
+</html>
+
+
+
+
