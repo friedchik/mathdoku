@@ -91,7 +91,7 @@ var solution3 = [
 /* Timer function */
 var timer; 
 var ele = document.getElementById('timer');
-
+/* Start Timer */
 (function (){
 	var sec = 0;
 	timer = setInterval(()=>{
@@ -100,6 +100,11 @@ var ele = document.getElementById('timer');
 		sec ++;
 	}, 1000) 
 })()
+
+/* Stop Timer */
+function stopTimer() {
+	clearTimeout(timer);
+}
 
 /* start the game */
 window.onload = function() {    
@@ -178,14 +183,16 @@ function levelselected() {
 	selectedlevel = this;
 	console.log("selectedlevel: ", selectedlevel);  //for debugging to check which level is selected
 	if (selectedlevel.alt == 1) {   // beginner level
-		Tilecounter = 0;
+		Tilecounter = 0;           // initialise the values when changing the level
+		errors = 0;				  // error start at 0	
 		level = selectedlevel.alt;
 		console.log("image level: ", level);
 		ClearDisplaytileboard();
 		DisplayTileboard();
 	}
 	else if(selectedlevel.alt == 2) {  //medium level
-		Tilecounter = 0;
+		Tilecounter = 0;			 
+		errors = 0;
 		level = selectedlevel.alt;
 		console.log("image level: ", selectedlevel.alt);
 		ClearDisplaytileboard();
@@ -193,6 +200,7 @@ function levelselected() {
 	}
 	else {	//hard level
 		Tilecounter = 0
+		errors = 0;
 		level = selectedlevel.alt;
 		console.log("image level: ", selectedlevel.alt);
 		ClearDisplaytileboard();
@@ -282,16 +290,19 @@ function selectTile() {
 				if (level == 1) {
 					if (Tilecounter == level1TotalTile) {
 						DisplayMessage();    // Display Congratulation! 
+						stopTimer();
 					}
 				} 
 				else if (level == 2){
 					if (Tilecounter == level2TotalTile) {
-						DisplayMessage();    // Display Congratulation! 
+						DisplayMessage();    // Display Congratulation!
+						stopTimer();
 					}
 				}
 				else {
 					if (Tilecounter == level3TotalTile) {
 						DisplayMessage();    // Display Congratulation! 
+						stopTimer();
 					}
 				}
 			}

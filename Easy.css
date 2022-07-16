@@ -205,6 +205,10 @@ hr {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+ol{
+    font-size: 25px;
+    text-align: left;
+}
 /* Modal Content */
 .modal-content {
     background-color: #fefefe;
