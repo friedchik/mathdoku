@@ -7,7 +7,7 @@ var errors = 0;
 var Tilecounter = 0;
 var level1TotalTile = 46;
 var level2TotalTile = 57;
-var level3TotleTile = 54;
+var level3TotalTile = 54;
 /* 
 1: beginner level
 2: medium level
@@ -149,6 +149,8 @@ function setGame() {
 	DisplayTileboard();
 }
 
+	//Displayfirework();
+
 // Display 1-9 on 3x3 grid
 function DisplayDigitnumber() {
 	// Create 3x3 numbers
@@ -169,12 +171,25 @@ function DisplayMessage() {
 }
 
 function Displayfirework(){
-	var effect = document.createElement("div");
-	firework.classList.add("firework");
-	document.getElementById("firework").appendChild(effect);
-	effect.innerText = firework.start();
+	let effect = document.createElement("div");
+	effect.classList.add("after");
+	document.getElementsByClassName("pyro")[0].appendChild(effect);
 }
 
+function Stopfirework() {
+	let effect = document.getElementsByClassName("pyro")[0];
+	//console.log("effect", effect);
+	while(effect.firstChild){
+		effect.removeChild(effect.firstChild);
+	}
+}
+
+function StopDisplayMessage() {
+	let success = document.getElementById("Prize")
+	while(success.firstChild) {
+		success.removeChild(success.firstChild);
+	}
+}
 
 /* select level */
 function levelselected() {
@@ -186,25 +201,32 @@ function levelselected() {
 		Tilecounter = 0;           // initialise the values when changing the level
 		errors = 0;				  // error start at 0	
 		level = selectedlevel.alt;
-		console.log("image level: ", level);
+		//console.log("image level: ", level);
 		ClearDisplaytileboard();
 		DisplayTileboard();
+		Stopfirework();
+		StopDisplayMessage();
+
 	}
 	else if(selectedlevel.alt == 2) {  //medium level
 		Tilecounter = 0;			 
 		errors = 0;
 		level = selectedlevel.alt;
-		console.log("image level: ", selectedlevel.alt);
+		//console.log("image level: ", selectedlevel.alt);
 		ClearDisplaytileboard();
 		DisplayTileboard();
+		Stopfirework();
+		StopDisplayMessage();
 	}
 	else {	//hard level
 		Tilecounter = 0
 		errors = 0;
 		level = selectedlevel.alt;
-		console.log("image level: ", selectedlevel.alt);
+		//console.log("image level: ", selectedlevel.alt);
 		ClearDisplaytileboard();
 		DisplayTileboard();
+		Stopfirework();
+		StopDisplayMessage();
 	}
 }
 
@@ -264,7 +286,7 @@ function selectNumber(){
 		numSelected.classList.remove("number-selected");      //remove number-selected style 
 	} 																	
 	numSelected = this;
-	console.log("numSelected", numSelected);       //debug numSelected
+	//console.log("numSelected", numSelected);       //debug numSelected
 	numSelected.classList.add("number-selected")   //Add number-selected style to the selected number
 }
 
@@ -287,24 +309,13 @@ function selectTile() {
 
 				this.innerText = numSelected.id;
 				document.getElementById("messages").innerText = "Correct";
-				if (level == 1) {
-					if (Tilecounter == level1TotalTile) {
-						DisplayMessage();    // Display Congratulation! 
-						stopTimer();
-					}
-				} 
-				else if (level == 2){
-					if (Tilecounter == level2TotalTile) {
-						DisplayMessage();    // Display Congratulation!
-						stopTimer();
-					}
+				
+				if (Tilecounter == level1TotalTile) {
+					DisplayMessage();    // Display Congratulation! 
+					stopTimer();
+					Displayfirework();
 				}
-				else {
-					if (Tilecounter == level3TotalTile) {
-						DisplayMessage();    // Display Congratulation! 
-						stopTimer();
-					}
-				}
+				
 			}
 			else {
 				errors += 1;   //if occurs in errors error count increment by 1
@@ -319,9 +330,16 @@ function selectTile() {
 		}
 		else if (level == 2) {	
 			if (solution2[r][c] == numSelected.id){
-				//count += 1;
+				Tilecounter += 1;
 				this.innerText = numSelected.id;
 				document.getElementById("messages").innerText = "Correct";
+
+				console.log("Tilecounter: ", Tilecounter);
+				if (Tilecounter == level2TotalTile) {
+					DisplayMessage();    // Display Congratulation!
+					stopTimer();
+					Displayfirework();
+				}
 			}
 			else {
 				errors += 1;   //if occurs in errors error count increment by 1
@@ -336,9 +354,17 @@ function selectTile() {
 		}
 		else if (level == 3) {	
 			if (solution3[r][c] == numSelected.id){
-				//count += 1;
+				Tilecounter += 1;
 				this.innerText = numSelected.id;
 				document.getElementById("messages").innerText = "Correct";
+				
+				console.log("Tilecounter: ", Tilecounter);
+				if (Tilecounter == level3TotalTile) {
+					DisplayMessage();    // Display Congratulation! 
+					stopTimer();
+					Displayfirework();
+				}
+
 			}
 			else {
 				errors += 1;   //if occurs in errors error count increment by 1

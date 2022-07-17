@@ -3,8 +3,9 @@
 <html>
 <title>Mathdoku</title>
 <link rel="stylesheet" type="text/css" href="Mathdoku.css">
+<link rel="stylesheet" type="text/css" href="firewall.css">
 <link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"> 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <body style="background-color:#00B4D8;">  
 
 <!----Click function to on/off music---->
@@ -12,29 +13,34 @@
 <div class="right-side">
 <img src="play.png" id="icon">
 </div>
-
+<div class="pyro">
+    <div class="before"></div>
+    <div class="after"></div>
 <audio id="mySong">
-
     <source src="gamemusic.mp3" type="audio/mp3">
 </audio>
-
+</div>
 <script>
-    var mySong = document.getElementById("mySong");
-    var icon = document.getElementById("icon");
+   // var mySong = document.getElementById("mySong");
+    //var icon = document.getElementById("icon");
 
-    icon.onclick = function() {
-       
-        if(mySong.paused){
-            console.log("mySong1: ", mySong);
-            mySong.play();
-            icon.src="pause.png";
-        }else{ 
-            console.log("mySong: ", mySong);
-
-            mySong.pause();
-            icon.src="play.png";
-        }
-    }
+    $(document).ready(function() {
+        var playing = false;
+        var icon = document.getElementById("icon");
+      
+        $('#icon').click(function() {
+            
+            if (playing == false){
+                document.getElementById("mySong").play();
+                playing = true;
+                icon.src="pause.png";
+            } else {
+                document.getElementById("mySong").pause();
+                playing = false;
+                icon.src="play.png";
+            }
+        })
+    })
 </script>
 
 <h1>Mathdoku</h1>
