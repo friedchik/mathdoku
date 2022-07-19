@@ -14,14 +14,14 @@
 
 h1 {
     color: white;
-    font-size: 50px;
+    font-size: 70px;
     margin-top: 20px;
     border-style: solid;
     border-collapse: separate;
     border-spacing: 15px;
     text-align: center;
-    width: 320px;
-    height: 80px;
+    width: 350px;
+    height: 90px;
     background-color: #500986;
     border-color: black;
     border-style: ridge;
@@ -33,6 +33,7 @@ h1 {
 
 
 h2 { 
+    font-size: 30px;
     text-align: center;
     margin: 20px;
     position: relative;
