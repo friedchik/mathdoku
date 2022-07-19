@@ -167,11 +167,6 @@ hr {
     border-right: 5px solid #068244;
 }
 
-.dark-mode { 
-    background-color: lemonchiffon;
-    color: black;
-}
-
 /* Image style */
 .img-rounded-border {
     opacity: 0.5; 

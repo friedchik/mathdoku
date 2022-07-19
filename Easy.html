@@ -4,13 +4,14 @@
 <link rel="stylesheet" type="text/css" href="Easy.css">
 <link rel="stylesheet" type="text/css" href="firewall.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <body>  <!----put a clear blue background image, this is just an example----->
 <section class ="container">
   <div class="nav">
     <a href="#default" class="logo">Mathdoku</a>
     <div class="nav-right">
       <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
-      <a href="#" id="myBtn">Help</a>
+      <a href="#" id="myBtn"><i class="fa fa-fw fa-info-circle"></i> Help</a>
     </div>
   </div> 
   <br>
@@ -25,6 +26,12 @@
   </div>
   <div class = "right">
     <article>
+      <div class="right-side">
+        <img src="play.png" id="icon">
+      </div>
+      <audio id="mySong">
+        <source src="gamemusic.mp3" type="audio/mp3">
+      </audio>
       <h1 id="messages">0</h1>
       <h2>Select Levels:</h2>
       <div id = "image"></div>
@@ -58,10 +65,29 @@
     </div>
   </div>
 </section>
+<script>
+  // var mySong = document.getElementById("mySong");
+   //var icon = document.getElementById("icon");
 
-<!--script src="Dropdown menu.js"></script-->
+   $(document).ready(function() {
+       var playing = false;
+       var icon = document.getElementById("icon");
+     
+       $('#icon').click(function() {
+           
+           if (playing == false){
+               document.getElementById("mySong").play();
+               playing = true;
+               icon.src="pause.png";
+           } else {
+               document.getElementById("mySong").pause();
+               playing = false;
+               icon.src="play.png";
+           }
+       })
+   })
+</script>
 <script src="IndexEasy.js"></script>
-<!--script src="setting.js"></script-->
 
 </body>
 </html>
